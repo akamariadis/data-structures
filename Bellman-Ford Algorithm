@@ -1,0 +1,53 @@
+#include <iostream>
+#include <vector>
+#include <climits>
+using namespace std;
+
+struct Edge {
+    int u, v, weight;
+};
+
+bool bellmanFord(int n, int src, const vector<Edge>& edges, vector<int>& dist, vector<int>& pred) {
+    dist.assign(n, INT_MAX);
+    pred.assign(n, -1);
+    dist[src] = 0;
+    for (int i = 0; i < n - 1; i++) {
+        for (const auto& edge : edges) {
+            if (dist[edge.u] != INT_MAX && dist[edge.u] + edge.weight < dist[edge.v]) {
+                dist[edge.v] = dist[edge.u] + edge.weight;
+                pred[edge.v] = edge.u;
+            }
+        }
+    }
+    for (const auto& edge : edges) {
+        if (dist[edge.u] != INT_MAX && dist[edge.u] + edge.weight < dist[edge.v]) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+int main() {
+    int n, m;
+    cout << "Enter the number of vertices and edges: " << endl;
+    cin >> n >> m;
+    vector<Edge> edges(m);
+    cout << "Enter the edges (u v weight):" << endl;
+    for (int i = 0; i < m; i++) {
+        cin >> edges[i].u >> edges[i].v >> edges[i].weight;
+    }
+    int src;
+    cout << "Enter the source vertex: ";
+    cin >> src;
+    vector<int> dist, pred;
+    if (bellmanFord(n, src, edges, dist, pred)) {
+        cout << "Shortest distances from source " << src << ":" << endl;
+        for (int i = 0; i < n; i++) {
+            cout << "Vertex " << i << ": " << (dist[i] == INT_MAX ? "INF" : to_string(dist[i])) << endl;
+        }
+    } else {
+        cout << "Negative weight cycle detected in the graph." << endl;
+    }
+    return 0;
+}
