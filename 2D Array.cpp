@@ -82,3 +82,24 @@ private:
     const Array2D &array2D;
     int row;
 };
+
+int main () {
+    try {
+        Array2D<int> array(3, 3);
+                for (int i = 0; i < 3; ++i) {
+            for (int j = 0; j < 3; ++j) {
+                array.select(i, j) = i * 3 + j + 1;
+            }
+        }
+        cout << "Array2D contents:" << endl;
+        for (int i = 0; i < 3; ++i) {
+            for (int j = 0; j < 3; ++j) {
+                cout << array.select(i, j) << " ";
+            }
+            cout << endl;
+        }
+    } catch (const out_of_range &e) {
+        cerr << "Error: " << e.what() << endl;
+    }
+    return 0;
+}
