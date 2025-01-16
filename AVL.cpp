@@ -54,22 +54,16 @@ Node* insert(Node* currNode, int key) {
         currNode->right = insert(currNode->right, key);
     else
         return currNode;
-
     currNode->height = 1 + max(height(currNode->left), height(currNode->right));
-
     int balance = getBalance(currNode);
-
     if (balance > 1 && key < currNode->left->key)
         return rightRotate(currNode);
-
     if (balance < -1 && key > currNode->right->key)
         return leftRotate(currNode);
-
     if (balance > 1 && key > currNode->left->key) {
         currNode->left = leftRotate(currNode->left);
         return rightRotate(currNode);
     }
-
     if (balance < -1 && key < currNode->right->key) {
         currNode->right = rightRotate(currNode->right);
         return leftRotate(currNode);
@@ -85,10 +79,8 @@ Node * minValueNode(Node* subtree) {
 }
 
 Node* deleteNode(Node* root, int keyToDelete) {
-
     if (root == NULL)
         return root;
-
     if (keyToDelete < root->key )
         root->left = deleteNode(root->left, keyToDelete);
     else if(keyToDelete > root->key )
@@ -110,31 +102,22 @@ Node* deleteNode(Node* root, int keyToDelete) {
         else {
             Node* temp = minValueNode(root->right);
             root->key = temp->key;
-            // διαγραφή διαδόχου
             root->right = deleteNode(root->right,
                                      temp->key);
         }
     }
-
     if (root == NULL)
         return root;
-
-    root->height = 1 + max(height(root->left),
-                           height(root->right));
-
+    root->height = 1 + max(height(root->left), height(root->right));
     int balance = getBalance(root);
-
     if (balance > 1 && getBalance(root->left) >= 0)
         return rightRotate(root);
-
     if (balance > 1 && getBalance(root->left) < 0) {
         root->left = leftRotate(root->left);
         return rightRotate(root);
     }
-
     if (balance < -1 && getBalance(root->right) <= 0)
         return leftRotate(root);
-
     if (balance < -1 && getBalance(root->right) > 0) {
         root->right = rightRotate(root->right);
         return leftRotate(root);
@@ -158,7 +141,7 @@ int main() {
     root = insert(root, 40);
     root = insert(root, 50);
     root = insert(root, 25);
-    cout << "Preorder traversal of the new AVL tree:\n";
+    cout << "Preorder traversal of the new AVL tree:" << endl;
     preOrder(root);
     return 0;
 }
