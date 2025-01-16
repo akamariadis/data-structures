@@ -1,5 +1,3 @@
-//This C++ code implements several fundamental operations for singly linked lists
-//including insertion, deletion, searching, concatenation, and reversal
 #include <iostream>
 using namespace std;
 
