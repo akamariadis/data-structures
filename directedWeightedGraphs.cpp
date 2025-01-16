@@ -1,6 +1,5 @@
 #include <iostream>
 #include <map>
-
 using namespace std;
 
 class weightedDirectedGraph {
@@ -17,19 +16,12 @@ public:
                 cout << " -> " << adjV.first << "(" <<adjV.second<<")";
         }
     }
-
-    // neighbours
     vector<pair<int,int>> neighbours(const int & nn) {
-        // αν το στοιχείο υπάρχει, έχει μέγεθος !=0, οπότε απλά το επιστρέφουμε
         if (adj[nn].size()) return adj[nn];
-
-        // αν το στοιχείο δεν υπάρχει, θα δημιουργηθεί, αλλά αυτό δε μας χρειάζεται.
         adj.erase(nn);
         return {};
     }
 private:
-    // map (int) -> vector of pairs(int, int)
-    // (node) ->  [ (node, cost), (node, cost), ...]
     map<int,vector<pair<int,int>>> adj;
 
 };
@@ -48,20 +40,9 @@ int main() {
     nsg.addEdge(4, 6, 45);
     nsg.print();
     cout << endl << "n of vertices = " << nsg.size();
-
     cout << "\nNeighbours of 3\n";
     for (auto v:nsg.neighbours(3)) {
         cout << "-> " << v.first << "(" << v.second<<")" ;
     }
+    return 0;
 }
-
-//
-// NTUA ECE ProgTech 2022-2023
-//
-// Directed weighted graphs
-//
-// Δείτε τα Run configurations στο αρχείο CMakeLists.txt
-// Προσοχή: σε κάθε αλλαγή που κάνετε στο CMakeLists.txt *πρέπει* να κάνετε "Reload changes" ή "Reload CMake project"
-//
-// Επιλέξτε: (menu)Run -> (option)Run... -> weightedDirected
-//
