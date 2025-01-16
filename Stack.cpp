@@ -1,7 +1,4 @@
-//This C++ code defines and demonstrates the use of a simple stack class
-//implemented using an array
 #include <iostream>
-
 using namespace std;
 
 class stack {
