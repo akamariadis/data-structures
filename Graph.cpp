@@ -1,5 +1,3 @@
-//This C++ code defines and utilizes a simple graph class
-//with depth-first search (DFS) traversal using an iterative approach
 #include <iostream>
 #include <vector>
 #include <stack>
