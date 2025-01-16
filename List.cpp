@@ -11,7 +11,6 @@ node* read () {
     node *head = nullptr;
     node *n;
     int data;
-
     while (scanf("%d", &data) == 1) {
         n = new node;
         n -> info = data;
