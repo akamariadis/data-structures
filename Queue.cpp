@@ -1,5 +1,3 @@
-//This C++ code defines and demonstrates the use of a simple queue class
-//implemented using a singly linked list
 #include <iostream>
 using namespace std;
 
