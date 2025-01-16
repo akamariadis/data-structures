@@ -1,8 +1,3 @@
-//This C++ code implements an AVL tree, a self-balancing binary search tree
-//The AVL tree maintains its height-balanced property by performing rotations
-//during insertion and deletion operations to ensure that the difference in heights
-//between the left and right subtrees of any node is at most one
-
 #include <iostream>
 using namespace std;
 
