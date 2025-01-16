@@ -1,16 +1,6 @@
-/* this file includes
- * 1) creation of a binary tree using class
- * 2) 3 traversal techniques -> preorder, postorder, inorder
- * 3) an insert function -> insert2
- * 4) a binary search tree function -> search
- * 5) a function that counts the nodes -> NumOfNodes
- * 6) a function that counts the height -> height
-*/
-
 #include <iostream>
 using namespace std;
 
-// creation of the tree
 struct node {
     int info;
     node *left, *right;
@@ -29,7 +19,6 @@ tree::tree () {
     root = nullptr;
 }
 
-// allows the insertion of an existing value in the same place
 node *insert_aux (node *t, int key) {
     if (t == nullptr) {
         node *p = new node;
@@ -62,7 +51,6 @@ void tree::print () {
     inorder_aux (root);
 }
 
-// preorder traversal technique
 void preorder (node *t) {
     if (t != nullptr) {
         cout << t -> info << endl;
@@ -71,7 +59,6 @@ void preorder (node *t) {
     }
 }
 
-// postorder traversal technique
 void postorder (node *t) {
     if (t != nullptr) {
         postorder (t -> left);
@@ -80,7 +67,6 @@ void postorder (node *t) {
     }
 }
 
-// inorder traversal technique
 void inorder (node *t) {
     if (t != nullptr) {
         inorder (t -> left);
@@ -89,7 +75,6 @@ void inorder (node *t) {
     }
 }
 
-// this function does not allow the insertion of an existing element
 node *insert2 (node *t, int key) {
     if (t == nullptr) {
         node *p = new node;
@@ -108,8 +93,6 @@ node *insert2 (node *t, int key) {
     }
 }
 
-// binary search tree -> every left subtree has values that are minor or equal to their root node
-// -> every right subtree has values that are greater or equal to their root node
 node *search (node *t, int key) {
     if (t == nullptr) {
         return nullptr; //not found
@@ -127,7 +110,6 @@ node *search (node *t, int key) {
     }
 }
 
-// number of nodes
 int NumOfNodes (node *t) {
     if (t == nullptr) {
         return 0;
@@ -137,7 +119,6 @@ int NumOfNodes (node *t) {
     }
 }
 
-// height of tree
 int height (node *t) {
     if (t == nullptr) {
         return 0;
