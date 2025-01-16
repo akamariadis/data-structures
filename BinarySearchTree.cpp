@@ -1,4 +1,3 @@
-//This C++ code defines and utilizes a basic binary search tree (BST) class
 #include <iostream>
 
 using namespace std;
