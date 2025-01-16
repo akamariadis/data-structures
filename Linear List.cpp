@@ -10,7 +10,6 @@ typedef node *list;
 
 void insertend (list &l, int data) {
     node *p, *q;
-
     p = new node;
     p -> info = data;
     p -> next = nullptr;
@@ -45,7 +44,6 @@ void deleteafterp (node *p) {
 
 node *search (list l, int data) {
     node *p;
-
     for (p = l; p != nullptr; p = p -> next) {
         if (p -> info == data) {
             return p;
@@ -56,7 +54,6 @@ node *search (list l, int data) {
 
 void concat (list &l1, list l2) {
     node *p;
-
     if (l2 == nullptr) {
         return;
     }
@@ -74,7 +71,6 @@ void concat (list &l1, list l2) {
 
 void reverse (list &l) {
     node *p, *q;
-
     q = nullptr;
     while (l != nullptr) {
         p = l;
