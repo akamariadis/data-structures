@@ -8,8 +8,6 @@ struct node {
 
 typedef node *list;
 
-//insert in the end of the linear list
-
 void insertend (list &l, int data) {
     node *p, *q;
 
@@ -28,8 +26,6 @@ void insertend (list &l, int data) {
     }
 }
 
-//insert after a given point of the linear list
-
 void insertafterp (node *p, int data) {
     if (p != nullptr) {
         node *q = new node;
@@ -39,8 +35,6 @@ void insertafterp (node *p, int data) {
     }
 }
 
-//delete after a given point of the linear list
-
 void deleteafterp (node *p) {
     if ((p != nullptr) && (p -> next != nullptr)) {
         node *q = p -> next;
@@ -48,8 +42,6 @@ void deleteafterp (node *p) {
         delete q;
     }
 }
-
-//search algorithm
 
 node *search (list l, int data) {
     node *p;
@@ -61,8 +53,6 @@ node *search (list l, int data) {
     }
     return nullptr;
 }
-
-//mix 2 linear lists
 
 void concat (list &l1, list l2) {
     node *p;
@@ -82,8 +72,6 @@ void concat (list &l1, list l2) {
     }
 }
 
-//reverse a linear list
-
 void reverse (list &l) {
     node *p, *q;
 
@@ -95,10 +83,4 @@ void reverse (list &l) {
         q = p;
     }
     l = q;
-}
-
-int main () {
-    //only insert in the end of the linear ist
-    node *list = insertend ();
-    return 0;
 }
