@@ -1,29 +1,31 @@
 #include <iostream>
 #include <map>
+#include <vector>
 using namespace std;
 
 class weightedDirectedGraph {
 public:
-    weightedDirectedGraph(): adj({}) {}
-    int size() {return adj.size(); }
-    void addEdge(int f, int t, int c) {
-        adj[f].push_back(make_pair(t,c));
+    weightedDirectedGraph() = default;
+    int size() const {
+        return adj.size();
     }
-    void print() {
-        for (auto const & vertex:adj) {
-            cout << endl << "[" << vertex.first << "]";
-            for (auto adjV:vertex.second)
-                cout << " -> " << adjV.first << "(" <<adjV.second<<")";
+    void addEdge(int f, int t, int c) {
+        adj[f].push_back(make_pair(t, c));
+    }
+    void print() const {
+        for (const auto& vertex : adj) {
+            cout << "\n[" << vertex.first << "]";
+            for (const auto& adjV : vertex.second)
+                cout << " -> " << adjV.first << "(" << adjV.second << ")";
         }
     }
-    vector<pair<int,int>> neighbours(const int & nn) {
-        if (adj[nn].size()) return adj[nn];
-        adj.erase(nn);
+    vector<pair<int, int>> neighbours(const int& nn) const {
+        auto it = adj.find(nn);
+        if (it != adj.end()) return it->second;
         return {};
     }
 private:
-    map<int,vector<pair<int,int>>> adj;
-
+    map<int, vector<pair<int, int>>> adj;
 };
 
 int main() {
@@ -39,10 +41,10 @@ int main() {
     nsg.addEdge(6, 3, 35);
     nsg.addEdge(4, 6, 45);
     nsg.print();
-    cout << endl << "n of vertices = " << nsg.size();
-    cout << "\nNeighbours of 3\n";
-    for (auto v:nsg.neighbours(3)) {
-        cout << "-> " << v.first << "(" << v.second<<")" ;
+    cout << nsg.size();
+    for (const auto& v : nsg.neighbours(3)) {
+        cout << "-> " << v.first << "(" << v.second << ")";
     }
+    cout << endl;
     return 0;
 }
