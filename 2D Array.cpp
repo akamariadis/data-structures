@@ -22,8 +22,8 @@ public:
         delete [] data;
         baseRow = a.baseRow;
         baseCol = a.baseCol;
-        numOfRows = a.numRows;
-        numOfCols = a.numCols;
+        numRows = a.numRows;
+        numCols = a.numCols;
         data = new T[numRows * numCols];
         for (unsigned i = 0;
              i < numRows * numCols; ++i)
@@ -46,7 +46,7 @@ protected:
     T *data;
     int baseRow, baseCol;
     unsigned numRows, numCols;
-    unsigned loc(int i, int j) const
+    unsigned loc(int i, int j) const;
     throw(out_of_range) {
         int di = i – baseRow, dj = j - baseCol;
         if (di < 0 || di >= numRows ||
@@ -86,7 +86,7 @@ private:
 int main () {
     try {
         Array2D<int> array(3, 3);
-                for (int i = 0; i < 3; ++i) {
+        for (int i = 0; i < 3; ++i) {
             for (int j = 0; j < 3; ++j) {
                 array.select(i, j) = i * 3 + j + 1;
             }
