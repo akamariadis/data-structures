@@ -8,7 +8,7 @@ struct node {
 };
 
 node *newnode(int newkey) {
-    Node *temp = new node;
+    node *temp = new node;
     temp -> key = newkey;
     return temp;
 }
@@ -33,7 +33,7 @@ node * searchTree(node *r, const int &k) {
 
 void LevelOrderTraversal(node * root) {
     if (root == NULL) return;
-    queue<Node *> q;
+    queue<node *> q;
     q.push(root);
     while (!q.empty()) {
         int n = q.size();
