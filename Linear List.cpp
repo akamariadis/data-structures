@@ -21,7 +21,7 @@ void insertend (list &l, int data) {
         while (q -> next != nullptr) {
             q = q -> next;
         }
-        q -> next = q;
+        q -> next = p;
     }
 }
 
