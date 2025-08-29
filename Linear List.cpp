@@ -30,7 +30,7 @@ void insertafterp (node *p, int data) {
         node *q = new node;
         q -> info = data;
         q -> next = p -> next;
-        p ->next = q;
+        p -> next = q;
     }
 }
 
