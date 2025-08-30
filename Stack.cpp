@@ -25,5 +25,6 @@ int main () {
     stack s;
     for (int i = 0; i < 10; ++i) s.insert(i);
     for (int i = 0; i < 10; ++i) cout << s.print_delete() << endl;
+    if (s.empty()) cout << "Stack is empty!" << endl;
     return 0;
 }
