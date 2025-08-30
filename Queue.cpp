@@ -55,5 +55,6 @@ int main () {
     for (int i = 0; i < 10; i++) {
         cout << s.dequeue() << endl;
     }
+    if (s.empty()) cout << "Queue is empty!" << endl;
     return 0;
 }
