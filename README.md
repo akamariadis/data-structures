@@ -1,3 +1,4 @@
-# SIMPLE-DATA-STRUCTURES-AND-ALGORITHMS
+# SIMPLE DATA STRUCTURES AND ALGORITHMS
+
 This repository features a collection of data structures commonly used in object-oriented programming. It will be regularly updated with new content, so stay tuned for more additions! 
 Feedback is always welcome—whether it's pointing out any mistakes I may have made or suggesting ways to enhance these files. Thank you in advance!
